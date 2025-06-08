@@ -1,0 +1,20 @@
+{
+    "name": "مسابقات Free Fire - Hamoda",
+    "short_name": "FF Hamoda",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#0a290a",
+    "theme_color": "#1a531b",
+    "icons": [
+        {
+            "src": "images/Hamoda.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/Hamoda.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

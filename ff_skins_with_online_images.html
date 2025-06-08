@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 متجر الألماس - سكنات فري فاير الحصرية</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2f1a 50%, #0d2818 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* خلفية متحركة */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        /* شرائط خضراء متحركة */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-gem {
+            position: absolute;
+            color: #00ff88;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* الهيدر */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid #00ff88;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #88ff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, #00ff88, #88ff00);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* القسم الرئيسي */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.2) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff88, #ffffff, #88ff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+        }
+
+        @keyframes glow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #E4405F, #FF6B9D);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(228, 64, 95, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(228, 64, 95, 0.5);
+            background: linear-gradient(45deg, #FF6B9D, #E4405F);
+        }
+
+        /* قسم المنتجات */
+        .products {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00ff88, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid #00ff88;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a2f1a, #0d2818);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 2px dashed #00ff88;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-image:hover {
+            border-color: #88ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #00ff88;
+            font-size: 1rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .uploaded-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 13px;
+        }
+
+        .image-input {
+            display: none;
+        }
+
+        .upload-text {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .product-card:hover::before {
+            animation: shine 1s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { opacity: 0; transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+            border-color: #88ff00;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ff88;
+        }
+
+        .product-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #88ff00;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-card .features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .product-card .features li {
+            padding: 0.5rem 0;
+            color: #cccccc;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .product-card .features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .contact-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #E4405F, #FF6B9D);
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(228, 64, 95, 0.4);
+            background: linear-gradient(45deg, #FF6B9D, #E4405F);
+        }
+
+        .contact-button i {
+            font-size: 1.2rem;
+        }
+
+        /* قسم المزايا */
+        .features-section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: #00ff881a;
+            border-radius: 15px;
+            border: 1px solid #00ff88;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 136, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        /* الفوتر */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+            border-top: 2px solid #00ff88;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #00ff88;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ff88, #88ff00);
+            color: #000000;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        .social-icons a.instagram {
+            background: linear-gradient(45deg, #E4405F, #FF6B9D);
+            color: #ffffff;
+        }
+
+        /* تأثيرات متقدمة */
+        .gem-icon {
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* استجابة للموبايل */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* نافذة تأكيد الشراء */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2f1a 100%);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+        }
+
+        .close {
+            color: #aaa;
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #00ff88;
+        }
+
+        .modal h2 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .confirm-btn {
+            background: linear-gradient(45deg, #00ff88, #88ff00);
+            color: #000000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .cancel-btn {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #666;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+    
+    <div class="floating-elements">
+        <div class="floating-gem" style="top: 10%; left: 10%; animation-delay: 0s;">💎</div>
+        <div class="floating-gem" style="top: 20%; left: 80%; animation-delay: 1s;">💎</div>
+        <div class="floating-gem" style="top: 70%; left: 15%; animation-delay: 2s;">💎</div>
+        <div class="floating-gem" style="top: 50%; left: 90%; animation-delay: 3s;">💎</div>
+        <div class="floating-gem" style="top: 80%; left: 70%; animation-delay: 4s;">💎</div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-gem gem-icon"></i> متجر فري فاير
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#features">المزايا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>💎 سكنات فري فاير الحصرية 💎</h1>
+        <p>احصل على أندر السكنات مقابل الجواهر بأفضل الأسعار!</p>
+        <button class="cta-button" onclick="contactOnInstagram('استفسار عام', 'عام')">
+        <a href="https://www.instagram.com/hamoda.777.1/" target="_blank" style="text-decoration: none; color: inherit;">
+        <i class="fab fa-instagram"></i> تواصل معنا
+        </a>
+
+        </button>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">🔥 العروض الحصرية 🔥</h2>
+        
+<div class="products-grid">
+    <!-- باقة المبتدئين -->
+    <div class="product-card">
+        <div class="product-image" id="product1-image">
+            <img src="https://i.postimg.cc/pdMswxjZ/1-artguru-1.png" alt="صورة باقة المبتدئين" class="uploaded-image">
+        </div>
+        <h3>👨‍🚀 سكن مسيطر المجرة</h3>
+        <div class="price">
+            <i class="fas fa-gem gem-icon"></i> 3500 جوهرة
+        </div>
+        <ul class="features">
+            <li>سكن مسيطر المجرة المميز.</li>
+            <li>سكن فريد من نوعه.</li>
+            <li>رقصات جماعية وفردية اسطورية.</li>
+            <li>تأثيرات على السكن رهيبة.</li>
+            <li>دعم فني ومميز.</li>
+        </ul>
+        <button class="contact-button" onclick="contactOnInstagram('باقة المبتدئين', '500')">
+            <a href="https://www.instagram.com/hamoda.777.1/" target="_blank" style="text-decoration: none; color: inherit;">
+                <i class="fab fa-instagram"></i> تواصل على الإنستا
+            </a>
+        </button>
+    </div>
+
+    <!-- باقة المحترفين -->
+    <div class="product-card">
+        <div class="product-image" id="product2-image">
+            <img src="https://i.postimg.cc/LXHNsTNg/2-artguru-1.png" alt="صورة باقة المحترفين" class="uploaded-image">
+        </div>
+        <h3>🔥 سكن الفانتوم</h3>
+        <div class="price">
+            <i class="fas fa-gem gem-icon"></i> 6000 جوهرة
+        </div>
+        <ul class="features">
+            <li>سكن الفانتوم الناري الأسطوري.</li>
+            <li>شكلة يدل على الاحتراف.</li>
+            <li>البسة لديها تأثيرات.</li>
+            <li>السعر قوي ومميز.</li>
+            <li>دعم فني مميز.</li>
+        </ul>
+        <button class="contact-button" onclick="contactOnInstagram('باقة الفانتوم', '6000')">
+            <a href="https://www.instagram.com/hamoda.777.1/" target="_blank" style="text-decoration: none; color: inherit;">
+                <i class="fab fa-instagram"></i> تواصل على الإنستا
+            </a>
+        </button>
+    </div>
+
+    <!-- باقة المحترفين -->
+    <div class="product-card">
+        <div class="product-image" id="product2-image">
+            <img src="https://i.postimg.cc/7Yp9zDKk/3-artguru-1.png" alt="صورة باقة المحترفين" class="uploaded-image">
+        </div>
+        <h3>🔫 سلاح الرويال الملكي</h3>
+        <div class="price">
+            <i class="fas fa-gem gem-icon"></i> 5000 جوهرة
+        </div>
+        <ul class="features">
+            <li>سكن MP40 الأزرق الأسطوري.</li>
+            <li>المدى البعيد والقوي.</li>
+            <li>شكلة رائع ومميز.</li>
+            <li>أسعار قوية.</li>
+            <li>دعم فني مميز.</li>
+        </ul>
+        <button class="contact-button" onclick="contactOnInstagram('باقة الفانتوم', '6000')">
+            <a href="https://www.instagram.com/hamoda.777.1/" target="_blank" style="text-decoration: none; color: inherit;">
+                <i class="fab fa-instagram"></i> تواصل على الإنستا
+            </a>
+        </button>
+    </div>
+
+</section>
+
+    <section class="features-section" id="features">
+        <h2 class="section-title">✨ لماذا تختارنا؟ ✨</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>تسليم فوري</h3>
+                <p>احصل على سكناتك خلال دقائق من الشراء</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>آمان تام</h3>
+                <p>حماية كاملة لحسابك وبياناتك الشخصية</p>
+            </div>
+
+    <!-- نافذة تأكيد التواصل -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h2>📱 تواصل معنا على الإنستا</h2>
+            <p id="contactDetails"></p>
+            <p style="color: #E4405F; margin: 1rem 0;">
+                <i class="fab fa-instagram"></i> 
+                سيتم توجيهك إلى الإنستا للتواصل المباشر
+            </p>
+            <button class="confirm-btn" onclick="proceedToInstagram()" style="background: linear-gradient(45deg, #E4405F, #FF6B9D);">
+                <i class="fab fa-instagram"></i> انتقل للإنستا
+            </button>
+            <button class="cancel-btn" onclick="closeContactModal()">
+                <i class="fas fa-times"></i> إلغاء
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // تأثيرات التمرير السلس
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }

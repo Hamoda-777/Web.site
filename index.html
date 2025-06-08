@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مسابقات Free Fire</title>
+  <style>
+    /* إعدادات عامة */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #0a290a;
+      color: #32CD32;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* القائمة العلوية */
+    .top-nav {
+      width: 100%;
+      background-color: #145214;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #32CD32;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .top-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .top-nav ul li {
+      margin: 0 10px;
+    }
+
+    .top-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .top-nav ul li a:hover, .top-nav ul li a.active {
+      background-color: #32CD32;
+      color: #000;
+    }
+
+    /* منطقة المحتوى الرئيسي */
+    .content-wrapper {
+      margin-top: 60px;
+      padding: 15px;
+      flex-grow: 1;
+    }
+
+    /* الهيدر والشعار */
+    .header {
+      background-color: #1a531b;
+      border-bottom: 3px solid #32CD32;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      border: 3px solid #32CD32;
+      background: radial-gradient(circle, #1a531b 0%, #0a290a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .header h1 {
+      margin: 5px 0;
+      font-size: 1.5em;
+      text-shadow: 0 0 10px #32CD32;
+    }
+
+    .header p {
+      color: #a2dca2;
+      font-size: 1em;
+      margin: 0;
+    }
+
+    /* لوحة الإشعارات */
+    .notification-panel {
+      background-color: #1a531b;
+      border: 2px solid #32CD32;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .notification-panel button {
+      background-color: #32CD32;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .notification-panel button:hover {
+      background-color: #27a227;
+    }
+
+    /* بطاقات المسابقات */
+    .contest-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .contest-card {
+      background-color: #1a4d1a;
+      color: #c8ffc8;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #32CD32;
+    }
+
+    .contest-card h2 {
+      margin-top: 0;
+    }
+
+    .status.coming-soon {
+      background-color: #32CD32;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    .prize {
+      color: #FFD700;
+      font-weight: bold;
+      text-shadow: 0 0 5px #FFD700;
+      margin-bottom: 5px;
+    }
+
+    .contest-card button {
+      background-color: #32CD32;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contest-card button:hover {
+      background-color: #27a227;
+    }
+
+    .contest-card button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    /* روابط التواصل الاجتماعي */
+    .social-links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .social-btn {
+      color: #32CD32;
+      font-weight: bold;
+      font-size: 1em;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-btn:hover {
+      color: #27a227;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <ul>
+    <li><a href="index.html" class="active">المسابقات</a></li>
+    <li><a href="winners.html">الفائزين</a></li>
+    <li><a href="ff_skins_with_online_images.html" target="_blank">المتجر</a></li>
+  </ul>
+</nav>
+
+<!-- المحتوى الرئيسي -->
+<div class="content-wrapper">
+  <!-- الهيدر -->
+  <div class="header">
+    <div class="logo">
+      <img src="images/Hamoda.png" alt="شعار Hamoda" />
+    </div>
+    <h1>🔥 مسابقات Free Fire 🔥</h1>
+    <p>شارك واربح الكثير من الجواهر 💎!</p>
+  </div>
+
+  <!-- لوحة الإشعارات -->
+  <div class="notification-panel">
+    <h3>🔔 إشعارات المسابقات 🔔</h3>
+    <p>اشترك لتلقي إشعارات فورية عند إطلاق مسابقات جديدة</p>
+    <button id="subscribeBtn">اشترك لتلقي الإشعارات</button>
+  </div>
+
+  <!-- شبكة المسابقات -->
+  <div class="contest-grid">
+    <div class="contest-card">
+      <h2>🕺 مسابقة الرقصات</h2>
+      <div class="status coming-soon">مفتوح الآن</div>
+      <p class="prize">الجائزة: 110 جوهرة 💎</p>
+      <p>شارك بأفضل رقصاتك!</p>
+      <a href="https://forms.gle/6gzsWUWdJCQmk9rn9" target="_blank">
+        <button>سجّل الآن</button>
+      </a>
+    </div>
+
+    <div class="contest-card">
+      <h2>🎭 مسابقة السكوادات</h2>
+      <div class="status coming-soon">قريبًا</div>
+      <p class="prize">الجائزة: 110 جوهرة 💎</p>
+      <p>تنافس مع فريقك للفوز!</p>
+      <button disabled>التسجيل قريبًا</button>
+    </div>
+
+    <div class="contest-card">
+      <h2>🏆 بطولة الأساطير</h2>
+      <div class="status coming-soon">قريبًا</div>
+      <p class="prize">الجائزة: 500 جوهرة 💎</p>
+      <p>البطولة الكبرى للاعبين المحترفين!</p>
+      <button disabled>التسجيل قريبًا</button>
+    </div>
+  </div>
+
+<script>
+  // تحديد الصفحة الحالية وتظليل الرابط المناسب
+  const currentPage = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll('.top-nav ul li a');
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>

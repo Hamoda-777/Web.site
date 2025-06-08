@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مسابقات Free Fire</title>
+  <style>
+    /* === إعدادات عامة === */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #0a290a;
+      color: #32CD32;
+      display: block;
+      background-image: url('https://example.com/background-image.jpg'); /* أضف صورة خلفية مناسبة */
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    /* === القائمة الجانبية === */
+    .sidebar {
+      width: 100%;
+      background-color: rgba(20, 82, 20, 0.9);
+      padding: 10px 0;
+      position: relative;
+      border-bottom: 2px solid #32CD32;
+      box-shadow: 0 0 10px #32CD32;
+      border-radius: 0;
+      backdrop-filter: blur(5px);
+    }
+
+    .sidebar-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #00ff00;
+      display: block;
+      margin: 0 auto 10px;
+      box-shadow: 0 0 10px #00ff00;
+      background: radial-gradient(circle, #1a531b 0%, #0a290a 100%);
+      transition: transform 0.3s;
+    }
+
+    .sidebar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .sidebar-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sidebar ul li {
+      margin: 0 10px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background-color: #32CD32;
+      color: #000 !important;
+    }
+
+    .sidebar ul li a:hover::before,
+    .sidebar ul li a.active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+
+    .sidebar ul li a:hover::before {
+      transform: translateX(100%);
+    }
+
+    /* === منطقة المحتوى الرئيسي === */
+    .content-wrapper {
+      margin: 0;
+      padding: 15px;
+    }
+
+    /* === الهيدر والشعار === */
+    .header {
+      background-color: rgba(26, 83, 27, 0.9);
+      border-bottom: 3px solid #32CD32;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      border: 3px solid #32CD32;
+      background: radial-gradient(circle, #1a531b 0%, #0a290a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 10px #32CD32;
+      transition: transform 0.3s;
+    }
+
+    .logo:hover {
+      transform: rotate(360deg);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .header h1 {
+      margin: 5px 0;
+      font-size: 1.5em;
+      text-shadow: 0 0 10px #32CD32;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #32CD32;
+      }
+      to {
+        text-shadow: 0 0 15px #32CD32, 0 0 20px #32CD32;
+      }
+    }
+
+    .header p {
+      color: #a2dca2;
+      font-size: 1em;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* === لوحة الإشعارات === */
+    .notification-panel {
+      background-color: rgba(26, 83, 27, 0.9);
+      border: 2px solid #32CD32;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .notification-panel h3 {
+      margin-top: 0;
+    }
+
+    .notification-panel button {
+      background-color: #32CD32;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 14px;
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .notification-panel button:hover {
+      background-color: #27a227;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .notification-panel button:active {
+      transform: translateY(0);
+    }
+
+    /* === بطاقات المسابقات === */
+    .contest-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .contest-card {
+      background-color: rgba(26, 77, 26, 0.9);
+      color: #c8ffc8;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(50, 205, 50, 0.3);
+    }
+
+    .contest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(50, 205, 50, 0.3);
+    }
+
+    .contest-card h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #32CD32;
+      text-shadow: 0 0 5px rgba(50, 205, 50, 0.5);
+    }
+
+    .status {
+      background-color: #32CD32;
+      color: #000;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 8px 0;
+      font-size: 12px;
+    }
+
+    .status.open {
+      background: linear-gradient(45deg, #32CD32, #228B22);
+    }
+
+    .status.coming-soon {
+      background: linear-gradient(45deg, #FFD700, #DAA520);
+      color: #000;
+    }
+
+    .prize {
+      color: #FFD700;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+
+    .btn-register {
+      background: linear-gradient(45deg, #32CD32, #228B22);
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      font-size: 14px;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-register:hover {
+      background: linear-gradient(45deg, #228B22, #32CD32);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-register:active {
+      transform: translateY(0);
+    }
+
+    .btn-register[disabled] {
+      background: linear-gradient(45deg, #555, #333);
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    /* === روابط التواصل الاجتماعي === */
+    .social-links {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .social-btn {
+      color: #32CD32;
+      font-weight: bold;
+      font-size: 1em;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: 2px solid #32CD32;
+      transition: all 0.3s;
+      margin: 10px;
+    }
+
+    .social-btn:hover {
+      background-color: #32CD32;
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(50, 205, 50, 0.5);
+    }
+
+    /* === تأثيرات إضافية === */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .contest-card {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .contest-card:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .contest-card:nth-child(3) {
+      animation-delay: 1s;
+    }
+  </style>
+</head>
+<body>
+  <!-- القائمة الجانبية -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/Hamoda.png" alt="شعار حمودة" />
+    </div>
+    <ul>
+      <li><a href="index.html" class="active">المسابقات</a></li>
+      <li><a href="winners.html">الفائزين</a></li>
+      <li><a href="ff_skins_with_online_images.html">المتجر</a></li>
+    </ul>
+  </aside>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="content-wrapper">
+    <!-- الهيدر -->
+    <div class="header">
+      <div class="logo">
+        <img src="images/Hamoda.png" alt="شعار Hamoda" />
+      </div>
+      <h1>🔥 مسابقات Free Fire 🔥</h1>
+      <p>شارك واربح الكثير من الجواهر💎!</p>
+    </div>
+
+    <!-- لوحة الإشعارات -->
+    <div class="notification-panel">
+      <h3>🔔 إشعارات المسابقات 🔔</h3>
+      <p>اشترك لتلقي إشعارات فورية عند إطلاق مسابقات جديدة</p>
+      <button id="subscribeBtn">اشترك لتلقي الإشعارات</button>
+      <div id="notificationStatus"></div>
+    </div>
+
+    <!-- شبكة المسابقات -->
+    <div class="contest-grid">
+      <div class="contest-card">
+        <h2>🕺 مسابقة الرقصات</h2>
+        <div class="status open">مفتوح الآن</div>
+        <p class="prize">الجائزة: 110 جوهرة 💎</p>
+        <p>شارك بأفضل رقصاتك في لعبة Free Fire واربح جوائز قيمة!</p>
+        <a href="https://forms.gle/6gzsWUWdJCQmk9rn9" target="_blank" class="btn-register">سجّل الآن</a>
+      </div>
+
+      <div class="contest-card">
+        <h2>🎭 مسابقة السكوادات</h2>
+        <div class="status coming-soon">قريباً</div>
+        <p class="prize">الجائزة: 110 جوهرة 💎</p>
+        <p>تنافس مع فريقك في هذه المسابقة الفريدة للفوز بجوائز رائعة!</p>
+        <button disabled class="btn-register">التسجيل قريباً</button>
+      </div>
+
+      <div class="contest-card">
+        <h2>🏆 بطولة الأساطير</h2>
+        <div class="status coming-soon">قريباً</div>
+        <p class="prize">الجائزة: 500 جوهرة 💎</p>
+        <p>البطولة الكبرى للاعبين المحترفين في Free Fire! هل أنت مستعد للتحدي؟</p>
+        <button disabled class="btn-register">التسجيل قريباً</button>
+      </div>
+    </div>
+
+    <!-- روابط التواصل -->
+    <div class="social-links">
+      <a class="social-btn" href="https://www.instagram.com/hamoda.777.1" target="_blank">
+        📷 تابعنا على إنستجرام
+      </a>
+      <a class="social-btn" href="https://www.youtube.com/channel/yourchannel" target="_blank">
+        🎥 شاهدنا على يوتيوب
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // تفعيل التظليل للرابط الحالي بالقائمة
+    const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('.sidebar ul li a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage || (currentPage === '' && link.getAttribute('href') === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+
+    // إضافة تأثيرات عند النقر على الزر
+    document.getElementById('subscribeBtn').addEventListener('click', function() {
+      const statusDiv = document.getElementById('notificationStatus');
+      statusDiv.innerHTML = 'شكراً لك على الاشتراك! ستتلقى إشعارات المسابقات قريباً.';
+      statusDiv.style.color = '#32CD32';
+      statusDiv.style.marginTop = '10px';
+      statusDiv.style.fontWeight = 'bold';
+
+      // إضافة تأثير اهتزاز
+      this.style.animation = 'shake 0.5s';
+      setTimeout(() => {
+        this.style.animation = '';
+      }, 500);
+    });
+
+    // إضافة تأثير اهتزاز
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

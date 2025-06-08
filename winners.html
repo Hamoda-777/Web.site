@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قسم الفائزين - Free Fire</title>
+  <style>
+    /* إعدادات عامة */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #0a290a;
+      color: #32CD32;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* القائمة العلوية */
+    .top-nav {
+      width: 100%;
+      background-color: #145214;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #32CD32;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .top-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .top-nav ul li {
+      margin: 0 10px;
+    }
+
+    .top-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .top-nav ul li a:hover, .top-nav ul li a.active {
+      background-color: #32CD32;
+      color: #000;
+    }
+
+    /* منطقة المحتوى الرئيسي */
+    .content-wrapper {
+      margin-top: 60px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    /* الهيدر مع الشعار */
+    .header {
+      background-color: #1a531b;
+      border-bottom: 3px solid #32CD32;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      border: 3px solid #32CD32;
+      background: radial-gradient(circle, #1a531b 0%, #0a290a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .header h1 {
+      margin: 10px 0 5px;
+      font-size: 1.8em;
+      text-shadow: 0 0 10px #32CD32;
+    }
+
+    .header p {
+      color: #a2dca2;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    /* جدول الفائزين */
+    .full-width-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+      background-color: #1a4d1a;
+      color: #c8ffc8;
+      box-shadow: 0 0 10px #32CD32;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .full-width-table th,
+    .full-width-table td {
+      border: 1px solid #32CD32;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    .full-width-table thead {
+      background-color: #145214;
+      color: #FFD700;
+    }
+
+    .full-width-table tbody tr:nth-child(even) {
+      background-color: #145214;
+    }
+
+    .full-width-table tbody tr:hover {
+      background-color: #2a672a;
+    }
+
+    /* تصميم متجاوب */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        padding: 15px;
+      }
+
+      .header h1 {
+        font-size: 1.5em;
+      }
+
+      .full-width-table th,
+      .full-width-table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <ul>
+    <li><a href="index.html">المسابقات</a></li>
+    <li><a href="winners.html" class="active">الفائزين</a></li>
+    <li><a href="ff_skins_with_online_images.html" target="_blank">المتجر</a></li>
+  </ul>
+</nav>
+
+<div class="content-wrapper">
+  <div class="header">
+    <div class="logo">
+      <img src="images/Hamoda.png" alt="شعار Hamoda" />
+    </div>
+    <h1>✨ الفائزون في المسابقات ✨</h1>
+    <p>مبروك للفائزين ونتمنى التوفيق للبقية!</p>
+  </div>
+
+  <table class="full-width-table">
+    <thead>
+      <tr>
+        <th>📅 التاريخ</th>
+        <th>🆔 الشخص</th>
+        <th>💎 الجائزة</th>
+        <th>🏆 المسابقة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+      <tr>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+        <td>--------------</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // تحديد الصفحة الحالية وتظليل الرابط المناسب
+  const currentPage = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll('.top-nav ul li a');
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
